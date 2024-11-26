@@ -26,6 +26,13 @@ body {
     height: 50px;
 }
 
+.stats {
+    display: block;           /* Transforma a imagem em um bloco, permitindo centralizá-la */
+    margin: 0 auto;           /* Aplica margens automáticas para centralizar a imagem */
+    width: 200px;             /* Define a largura da imagem */
+    height: auto;             /* A altura se ajusta automaticamente de acordo com a proporção da imagem */
+}
+
 /* Menu Central (Desktop) */
 .menu-central {
     display: flex;
@@ -62,7 +69,7 @@ body {
 
 /* Hover */
 .menu-central a:hover {
-    background-color: #D8E9FF; /* Cor de hover */
+    background-color: #005599; /* Cor de hover */
 }
 
 /* Item Ativo */
@@ -109,7 +116,7 @@ body {
     border: 2px solid white;
 }
 
-/* Informações do Usuário */
+/* Foto e Detalhes do Usuário */
 .user-info {
     display: flex;
     align-items: center;
@@ -125,8 +132,8 @@ body {
 .user-info img {
     width: 36px;
     height: 36px;
-    border-radius: 50%;
-    object-fit: cover;
+    border-radius: 50%; /* Mantém a imagem circular */
+    object-fit: cover; /* Garante o corte correto da imagem */
 }
 
 /* Detalhes do usuário (nome e cargo) */
@@ -173,17 +180,27 @@ body {
 /* Dropdown do Menu Sanduíche */
 .dropdown-menu {
     position: absolute;
-    top: 70px; /* Abaixo do header */
+    top: 70px; /* Posicionado abaixo do header */
     left: 0;
-    width: 100%;
-    background-color: #FFFFFF;
+    width: 80%; /* Define que o menu ocupa 80% da largura */
+    height: calc(100% - 70px); /* Altura ajustada para não cobrir completamente */
+    background-color: #003366; /* Fundo azul */
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    display: none; /* Começa escondido */
+    display: none; /* Escondido por padrão */
+    z-index: 1000;
+    border-top-right-radius: 30px; /* Bordas arredondadas para um design mais limpo */
+    border-bottom-right-radius: 30px;
+    overflow-y: auto; /* Permite rolagem caso o conteúdo exceda o tamanho */
+}
+
+.dropdown-menu.active {
+    display: block; /* Mostra o menu quando ativo */
 }
 
 .dropdown-menu ul {
     list-style: none;
     padding: 0;
+    padding-left: 30px; /* afasta da lateral */
     margin: 0;
 }
 
@@ -191,359 +208,664 @@ body {
     display: block;
     padding: 15px;
     text-decoration: none;
-    color: black;
-    border-bottom: 1px solid #E0E0E0;
+    color: white;
+    border-bottom: none; /* Remove divisões principais */
 }
 
 .dropdown-menu li a:hover {
-    background-color: #D8E9FF;
-}
-
-.content {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    padding: 5px;
-    gap: 10px;
-}
-
-.left-grid {
-    width: 100%; 
-    height: 100%; 
-    position: relative;
-    padding: 20px;
-    gap: 10px;
-    width: 100%;
-    height: 893px;
+    background-color: #005599;
+    display: inline-block;
     border-radius: 30px;
-    background: #003479;
 }
 
-.left-grid ul {
-    width: 260px; 
-    height: 47px; 
-    left: 0px; 
-    top: 11px; 
-    position: relative; 
-    color: white; 
-    font-size: 16px; 
-    font-family: Roboto; 
-    font-weight: 400; 
-    line-height: 24px; 
-    letter-spacing: 0.50px; 
-    word-wrap: break-word;
-    padding-top: 20px;
-    padding-left: 9px;
-}
 
-.left-grid li {
+/* Submenu */
+.submenu {
+   /*  display: none; /* Escondido por padrão */
     list-style: none;
-    width: 210px; 
-    height: 220px; 
-    position: relative;
+    position: absolute;
+    top: 100%; /* Posicionado abaixo do item pai */
+    left: 0;
+    background-color: #003366; /* Fundo azul escuro */
+    padding: 0;
+    margin: 0;
+    border-radius: 8px;
+    z-index: 10; /* Para aparecer acima dos outros elementos */
 }
 
-.left-grid a {
-    display: inline-block;
-    width: 260px; 
-    height: 47px;
+.has-submenu.active .submenu {
+    display: none; /* Mostra o submenu quando o pai estiver ativo */
+}
+.submenu li {
+    border-bottom: none; /* Remove as divisões */
+    padding-left: 40px; /* Espaçamento da borda esquerda */
+}
+
+.submenu li:last-child {
+    border-bottom: none; /* Remove a borda do último item */
+}
+
+.submenu li a {
+    color: white;
+    padding: 10px 15px;
+    display: block;
     text-decoration: none;
-    left: 0px; 
-    top: 11px; 
-    position: relative; 
-    color: white; 
-    font-size: 16px; 
-    font-family: Roboto; 
-    font-weight: 400;
-    letter-spacing: 0.50px; 
-    text-align: left;
-    padding-left: 9px;
-    line-height: 47px;
-    word-wrap: break-word;
-    border-radius: 50px; 
-    transition: all 0.3s ease-in-out;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-left: 20px; /* Adiciona margem interna nos itens */
 }
 
-.left-grid a:hover {
-    color: #20A09F;
-    background-color: #D8E9FF
+.submenu li a:hover {
+    background-color: #005599; /* Cor ao passar o mouse */
+    display: inline-block;
 }
 
-.left-grid a:active {
-    color: #FFF;
-    background-color: #20A09F;
+/* Mostrar Submenu somente quando ativo */
+.has-submenu.active > a {
+    display: none;
+    font-weight: bold; /* Texto em negrito */
+    color: white; /* Cor do texto */
+    background-color: transparent; /* Sem fundo */
 }
 
-.left-options-background {
-    width: 100%; 
-    height: 100%; 
-    left: 0px; 
-    top: 0px; 
-    position: absolute; 
-    background: #003479; 
-    border-radius: 30px;
+.submenu a.active {
+    background-color: #00A19A; /* Fundo verde */
+    color: white; /* Texto branco */
+    font-weight: bold; /* Texto em negrito */
+    border-radius: 30px; /* Oblongo */
+    padding: 10px 20px; /* Espaçamento interno */
+    margin-left: 10; /* Remove deslocamento lateral, se necessário */
+    display: inline-block; /* Garante que o tamanho seja ajustado ao conteúdo */
 }
 
-.search-bar {
-    width: 260px; 
-    height: 47px;
-    padding: 10px; 
-    left: 9px; 
-    top: 14px; 
-    position: relative; 
-    background: #FFF; 
-    border-radius: 54px;
+
+/* Dropdown no Mobile */
+.hamburger-menu {
+
+    flex-direction: column;
+    gap: 4px;
+    background: #003366;
     border: none;
+    padding: 10px;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
 }
 
-.central-grid {
-    width: 100%; 
-    height: 100%; 
-    position: relative;
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+
+
+/* Contêiner de Pesquisa no Menu Hambúrguer */
+.dropdown-menu .search-container {
+    padding: 10px; /* Espaçamento interno */
+    background-color: #003366; /* Fundo igual ao menu */
+}
+
+.dropdown-menu .search-container input {
+    width: calc(100% - 40px); /* Largura do campo menos o botão de limpar */
+    padding: 10px 15px; /* Espaçamento interno */
+    border: none;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 20px; /* Bordas arredondadas */
+    background-color: white; /* Fundo branco */
+    color: #333; /* Texto escuro */
+    font-size: 14px; /* Tamanho da fonte */
+    outline: none; /* Remove borda de foco padrão */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container Flexível */
+.flex-container {
+    display: flex;
+    gap: 20px; /* Espaçamento entre os itens */
+    margin: 20px 0;
+}
+
+/* Itens Flexíveis com Proporções */
+.flex-item {
     padding: 20px;
-    gap: 10px;
-    width: 100%;
-    height: 893px;
-    border-radius: 30px;
-    background: #FFF;
+    border-radius: 8px;
+    background-color: #f9f9f9;
 }
 
-.central-grid h1 {
-    width: 100%; 
-    height: 60px; 
-    font-size: 48px; 
-    font-family: Inter; 
-    font-weight: 700; 
-    word-wrap: break-word;
-    font-style: normal;
-    line-height: 120%;
-    letter-spacing: -0.96px;
-    color: #20A09F;
-    padding-left: 12px;
+/* Área Azul (1/5) */
+.flex-blue {
+    flex: 1; /* Ocupa 1/5 do espaço */
+    background-color: #003366; /* Fundo azul escuro */
+    color: white; /* Texto em branco */
+    border-radius: 0 20px 20px 0; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaçamento entre os elementos internos */
+    justify-content: top;
 }
 
-.central-grid h2 {
-    width: 716px;
-    height: 25px;
-    color: #282828;
-    font-family: Inter;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%;
-    letter-spacing: -0.48px;
-    padding-left: 12px;
+/* Estilo dos links ou itens na área azul */
+.flex-blue a {
+    text-decoration: none; /* Remove sublinhado */
+    color: white; /* Texto em branco */
+    font-size: 16px; /* Tamanho da fonte */
+    line-height: 1.5; /* Altura da linha para espaçamento */
+    border-radius: 20px; /* Bordas arredondadas dos links */
+    padding: 10px 15px; /* Espaçamento interno */
 }
 
-.central-grid h3 {
-    width: 505px;
-    height: 15px;
-    color: rgba(117, 117, 117, 0.69);
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 140%;
-    padding-left: 12px;
+/* Hover nos links */
+.flex-blue a:hover {
+    background-color: #005599; /* Cor de destaque no hover */
+    border-radius: 50px;
 }
 
-.table-faculdades {
-    border-collapse: collapse; /* Remove espaçamentos entre as células */
-    width: 100%; /* Define a largura total da tabela */
+/* Link ativo */
+.flex-blue a.active {
+    background-color: #00A19A; /* Cor diferente para o item ativo */
+    color: white; /* Texto em branco */
+    border-radius: 50px;
 }
 
-.table-faculdades th, td { 
-    padding: 8px; /* Adiciona espaçamento interno */
-    text-align: center; /* Centraliza o conteúdo */
-    height: 50px;
-    width: 132px;
+/* Contêiner de Pesquisa */
+.search-container {
+    position: relative;
+    margin-bottom: 15px; /* Espaçamento abaixo do campo */
 }
 
-.table-faculdades a {
-    display: inline-block;
-    width: 100%; 
-    height: 50px;
+.search-container input {
+    width: 100%; /* Ocupa toda a largura do contêiner */
+    padding: 10px 40px 10px 15px; /* Espaçamento interno (inclui espaço para o botão de limpar) */
+    border: none;
+    border-radius: 20px; /* Bordas arredondadas */
+    background-color: white; /* Fundo branco */
+    color: #333; /* Texto escuro */
+    font-size: 14px; /* Tamanho da fonte */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    outline: none; /* Remove borda de foco padrão */
+}
+
+/* Botão de Limpar */
+.clear-button {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Alinhado à direita */
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #999;
+    cursor: pointer;
+}
+
+.clear-button:hover {
+    color: #333; /* Cor mais escura ao passar o mouse */
+}
+
+/* Links ou itens na área azul */
+.flex-blue a {
     text-decoration: none;
-    left: 0px; 
-    top: 0px; 
-    position: relative; 
-    color: #707070; 
-    font-size: 14px; 
-    font-family: Inter; 
-    font-weight: 400;
-    letter-spacing: 0.50px; 
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+    border-radius: 10px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover nos links */
+.flex-blue a:hover {
+    background-color: #005599;
+}
+
+/* Link ativo */
+.flex-blue a.active {
+    background-color: #00A19A;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Área do Meio (3/5) */
+.flex-middle {
+    flex: 3; /* Ocupa 3/5 do espaço */
+    background-color: white;
+    border-radius: 20px;
+}
+
+/* Container dos Campos */
+.field-group {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 colunas para desktop */
+    gap: 15px; /* Espaçamento entre os itens */
+    margin: 20px auto; /* Centraliza horizontalmente */
+    max-width: 1050px; /* Define a largura máxima do container */
+}
+
+/* Estilo dos Campos */
+.field {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 12px; /* Bordas arredondadas */
+    background-color: #E0E0E0; /* Cor de fundo */
+    color: #333; /* Cor do texto */
+    font-size: 14px;
+    font-family: Arial, sans-serif;
     text-align: center;
-    line-height: 50px;
-    word-wrap: break-word;
-    border-radius: 10px; 
-    transition: all 0.3s ease-in-out;
-    background-color: #E0E0E0;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    cursor: pointer; /* Estilo de ponteiro ao passar o mouse */
+    transition: background-color 0.3s ease;
 }
 
-.table-faculdades a:hover {
-    background-color: #D8E9FF
+/* Efeito Hover */
+.field:hover {
+    background-color: #005599; /* Cor ao passar o mouse */
+    color: white;
 }
 
-.table-faculdades a:active {
-    color: #FFF;
-    background-color: #20A09F;
+/* Botão Ativo */
+.field.active {
+    background-color: #00A19A; /* Cor de fundo para o ativo */
+    color: white;
+    font-weight: bold; 
 }
 
-.table-faculdades a:active {
-    color: #FFF;
-    background-color: #20A09F;
+
+
+/* Estilo do cabeçalho do relatório */
+.report-header {
+    text-align: left; /* Centraliza o texto */
+    margin-bottom: 20px; /* Espaço abaixo do cabeçalho */
+    margin-left: 10px;
 }
+
+.report-subtitle {
+    font-size: 20px;
+    color: #464646; /* Cor do subtítulo */
+    margin-bottom: 5px;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.report-title {
+    font-size: 60px;
+    color: #00A19A; /* Cor principal do título */
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.report-description {
+    font-size: 16px;
+    color: #979797; /* Cor secundária para o texto */
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+
+
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 5px;
-    gap: 30px;
-    align-items: center;
-    border: 2px solid #FFF;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas no desktop */
+    gap: 20px; /* Espaçamento entre os cards */
+    justify-content: center; /* Centraliza os cards */
+    margin: 20px auto; /* Centraliza e adiciona margem */
+    padding: 10px;
 }
 
-.cards-p1 {
-    font-size: 32px; 
-    font-family: Poppins; 
-    font-weight: 600; 
-    line-height: 48px; 
-    word-wrap: break-word
+.card {
+    background: #F5F5F5; /* Fundo padrão */
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha os elementos à esquerda */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    text-align: left; /* Alinha o texto à esquerda */
 }
 
-.cards-p2{
-    font-size: 20px; 
-    font-family: Poppins; 
-    font-weight: 500; 
-    line-height: 20px; 
-    word-wrap: break-word;
+.card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 15px; /* Espaçamento abaixo da bolinha */
+    display: flex; /* Flexbox para centralização */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    position: relative; /* Garante que o conteúdo dentro da bolinha esteja alinhado */
+    overflow: hidden; /* Evita qualquer conteúdo extra fora do círculo */
 }
 
-.cards-p3{
-    font-size: 16px; 
-    font-family: Poppins; 
-    font-weight: 500; 
-    line-height: 32px; 
-    word-wrap: break-word;
+.card-icon img {
+    width: 60%; /* Ajuste para deixar o ícone proporcional à bolinha */
+    height: 60%;
+    object-fit: contain; /* Evita distorção do ícone */
 }
 
-.card-1 {
-    position: relative;
-    width: 100%; 
-    height: 168px; 
-    background: #F5F5F5; 
+.card-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Cor do número */
+    margin-bottom: 5px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #666; /* Cor do título */
+    margin-bottom: 8px;
+}
+
+.card-detail {
+    font-size: 12px;
+    color: #979797; /* Cor do detalhe */
+}
+
+
+
+
+/* GRAFICOOO */
+.chart-container {
+    margin: 30px auto;
+    max-width: 1050px;
+    padding: 20px;
+    background: #FFFFFF;
+    border: 1PX solid #c4c4c4;
+    border-radius: 20px;
+}
+
+.chart-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #464646;
+    text-align: left;
+}
+
+.chart-description {
+    font-size: 14px;
+    color: #00A19A;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+/* Container geral para os dois boxes */
+.dual-box-container {
+    display: flex;
+    justify-content: space-between; /* Espaçamento entre os boxes */
+    gap: 20px; /* Espaçamento horizontal */
+    align-items: flex-start; /* Alinha os boxes no topo */
+}
+
+/* Estilo padrão para os boxes */
+.box {
+    flex: 1; /* Cada box ocupa metade do espaço */
+    background-color: #ffffff;
     border-radius: 15px;
     padding: 20px;
-    flex-direction: column;
-    align-items: flex-start; 
-    gap: 10px; 
+    border: 1PX solid #c4c4c4;
+    border-radius: 20px;
+    
 }
 
-.card-2 {
-    position: relative;
-    width: 100%; 
-    height: 168px; 
-    background: #D8FBF8; 
-    border-radius: 15px;
-    padding: 20px;
-    flex-direction: column;
-    align-items: flex-start; 
-    gap: 10px; 
+/*Barra de progresso*/
+.progress1 {
+    background: #E0E0E0;
+    border-radius: 13px;
+    height: 5px;
+    width: 300px;
+    padding: 0px;
 }
 
-.card-3 {
-    position: relative;
-    width: 100%; 
-    height: 168px; 
-    background: #E6F3FF; 
-    border-radius: 15px;
-    padding: 20px;
-    flex-direction: column;
-    align-items: flex-start; 
-    gap: 10px; 
+.progress1:after {
+    content: '';
+    display: block;
+    background: #20A09F;
+    width: 80%;
+    height: 100%;
+    border-radius: 9px;
 }
 
-.card-4 {
-    position: relative;
-    width: 100%; 
-    height: 168px; 
-    background: #F3F3F3; 
-    border-radius: 15px;
-    padding: 20px;
-    flex-direction: column;
-    align-items: flex-start; 
-    gap: 10px; 
+.progress2 {
+    background: #E0E0E0;
+    border-radius: 13px;
+    height: 5px;
+    width: 300px;
+    padding: 0px;
 }
 
-.card-1-icon {
+.progress2:after {
+    content: '';
+    display: block;
+    background: #20A09F;
+    width: 65%;
+    height: 100%;
+    border-radius: 9px;
+}
+
+.progress3 {
+    background: #E0E0E0;
+    border-radius: 13px;
+    height: 5px;
+    width: 300px;
+    padding: 0px;
+}
+
+.progress3:after {
+    content: '';
+    display: block;
+    background: #20A09F;
+    width: 60%;
+    height: 100%;
+    border-radius: 9px;
+}
+
+.progress4 {
+    background: #E0E0E0;
+    border-radius: 13px;
+    height: 5px;
+    width: 300px;
+    padding: 0px;
+}
+
+.progress4:after {
+    content: '';
+    display: block;
+    background: #20A09F;
+    width: 25%;
+    height: 100%;
+    border-radius: 9px;
+}
+
+
+
+/* Para a tabela na Lista de Aprovados */
+.approved-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+
+
+/* ESTILOS" */
+.best-disciplines h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #464646;
+    margin-bottom: 10px;
+}
+
+.best-disciplines p {
+    font-size: 14px;
+    color: #00A19A;
+    margin-bottom: 20px; 
+}
+
+
+.approved-list h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #464646;
+    margin-bottom: 10px;
+}
+
+.approved-list p {
+    font-size: 14px;
+    color: #00A19A;
+    margin-bottom: 20px;
+}
+
+
+.approved-list th,
+.approved-list td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.approved-list th {
+    font-size: 14px;
+    font-weight: bold;
+    color: #979797;
+}
+
+.approved-list td {
+    font-size: 14px;
+    color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+/* Container geral da Terceira Área */
+.flex-bottom {
+    flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px; 
-    height: 40px; 
-    background: #E0E0E0; 
-    border-radius: 9999px
-}
-
-.card-2-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px; 
-    height: 40px; 
-    background: #20A09F; 
-    border-radius: 9999px
-}
-
-.card-3-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px; 
-    height: 40px; 
-    background: #003479; 
-    border-radius: 9999px
-}
-
-.card-4-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px; 
-    height: 40px; 
-    background: #E0E0E0; 
-    border-radius: 9999px
-}
-
-.mural {
-    width: 100%; 
-    height: 100%; 
-    padding: 16px;
-    background: rgba(32, 160, 159, 0.15); 
-    border-radius: 30px; 
-    overflow: hidden; 
     flex-direction: column;
-    align-items: flex-start; 
-    gap: 10px; 
-    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    border-radius: 20px;
+    width: 100%; /* Garante que o container ocupe todo o espaço disponível */
 }
 
-.ad-1 {
-    width: 269px; 
-    height: 269px; 
-    border-radius: 23px;
+.calendar-container {
+    width: 100%; /* Garante que ocupe toda a largura disponível */
+    height: 350px; /* Define uma altura fixa */
+    overflow: hidden; /* Evita transbordamento */
+    border-radius: 20px; /* Bordas arredondadas */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
 }
 
-.ad-2 {
-    width: 269px; 
-    height: 477px; 
-    border-radius: 23px;
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 20px;
 }
 
-.ad-3 {
-    width: 268px; 
-    height: 268px; 
-    border-radius: 23px;
+/* Box Cinza para as Imagens */
+.ads-box {
+    width: 100%;
+    max-width: 600px; /* Limite no desktop */
+    background-color: #f0f0f0; /* Fundo cinza */
+    border-radius: 20px; /* Bordas arredondadas */
+    padding: 10px; /* Espaçamento interno */
+    overflow: hidden; /* Evita conteúdo excedendo o box */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
 }
+
+/* Container das Imagens */
+.ads-container {
+    display: flex;
+    flex-direction: column; /* Imagens empilhadas no desktop */
+    gap: 15px; /* Espaçamento entre as imagens */
+    padding: 10px;
+}
+
+/* Estilo para cada imagem */
+.ad-image {
+    width: 100%;
+    max-width: 100%; /* Cada imagem ocupa a largura completa do container */
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Reorganização para Telas Menores */
 @media (max-width: 768px) {
@@ -568,12 +890,146 @@ body {
         gap: 10px;
     }
 
-    .user-info {
-        display: flex;
+    .submenu {
+        position: static; /* Remove a posição absoluta no mobile */
+        border-radius: 0; /* Remove bordas no mobile */
     }
 
-    /* Mostra o Dropdown Quando Ativo */
-    .dropdown-menu.active {
-        display: block;
+    .user-info {
+        justify-content: center; /* Centraliza a imagem no círculo */
+        padding: 0; /* Remove o padding extra */
+        width: 48px;
+        height: 48px; /* Redefine a altura para círculo perfeito */
+        border-radius: 50%; /* Transforma em círculo */
     }
+
+    .user-info img {
+        margin-right: 0; /* Remove o espaçamento lateral */
+    }
+
+    .user-details {
+        display: none; /* Esconde nome e cargo */
+    }
+
+
+
+    /* Tornar as áreas em coluna no mobile */
+    .flex-container {
+        flex-direction: column;
+    }
+
+    /* Ocultar Área Azul */
+    .flex-blue {
+        display: none; /* Oculta a área azul no mobile */
+    }
+
+    .field-group {
+        grid-template-columns: repeat(4, 1fr); /* 4 colunas no mobile */
+    }
+
+    .field {
+        padding: 12px 18px; /* Reduz o tamanho para mobile */
+        font-size: 12px; /* Reduz o tamanho da fonte */
+    }
+
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas no mobile */
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card-number {
+        font-size: 20px;
+    }
+
+    .card-title {
+        font-size: 14px;
+    }
+
+    .card-detail {
+        font-size: 12px;
+    }
+
+
+
+
+    .report-title {
+        font-size: 48px; /* Reduz tamanho do título no mobile */
+        text-align: center;
+    }
+
+    .report-subtitle {
+        font-size: 24px; /* Ajusta o subtítulo */
+        text-align: center;
+    }
+
+    .report-description {
+        font-size: 12px; /* Ajusta o texto descritivo */
+            text-align: center;
+    }
+
+    .chart-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #464646;
+        text-align: center;
+    }
+    
+    .chart-description {
+        font-size: 14px;
+        color: #00A19A;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+
+
+
+    .dual-box-container {
+        flex-direction: column; /* Empilha os boxes no mobile */
+        gap: 20px; /* Ajusta o espaçamento entre os boxes */
+    }
+
+    .box {
+        width: 100%; /* Cada box ocupa toda a largura */
+    }
+
+
+
+
+
+
+
+    .ads-container {
+        display: flex;
+        flex-direction: row; /* Mantém o layout horizontal no mobile */
+        overflow-x: auto; /* Permite rolagem horizontal */
+        gap: 15px; /* Espaçamento entre as imagens */
+        scrollbar-width: thin; /* Personaliza a barra de rolagem no Firefox */
+        justify-content: start; /* Alinha à esquerda */
+    }
+    
+    .ad-image {
+        flex-shrink: 0; /* Impede que a imagem encolha */
+        width: auto; /* Ajusta largura proporcional */
+        height: 250px; /* Define altura fixa com base na maior imagem */
+        max-height: 250px; /* Limita a altura máxima */
+        aspect-ratio: 1; /* Mantém as imagens quadradas */
+        border-radius: 20px; /* Bordas arredondadas */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        object-fit: cover; /* Garante que o conteúdo da imagem preencha sem distorção */
+        transition: transform 0.3s ease; /* Adiciona animação */
+    }
+
+
+    .calendar-section iframe {
+        max-width: 100%; /* Garante que o calendário ocupe toda a largura */
+    }
+
+
+
+
 }

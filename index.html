@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aprova System</title>
+    <title>Aprova System 2</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body>
     <!-- Barra de Navegação -->
@@ -30,7 +29,16 @@
                 <li><a href="#">Cursos <br>& Disciplinas</a></li>
                 <li><a href="#">Professores <br>& Horários</a></li>
                 <li><a href="#">Avaliações <br>& Notas</a></li>
-                <li><a href="#" class="active">Relatórios <br>& Estatísticas</a></li>
+                <li class="has-submenu">
+                    <a href="#" class="active">Relatórios <br>& Estatísticas</a>
+<!--                    <ul class="submenu">
+                        <li><a href="#">Relatório de Aprovações</a></li>
+                        <li><a href="#">Relatório de Desempenho</a></li>
+                        <li><a href="#">Exportar Relatórios</a></li>
+                        <li><a href="#">Editar Turmas</a></li>
+                        <li><a href="#">Vincular Alunos/Turmas</a></li>
+                    </ul>>
+                </li>-->
                 <li><a href="#">Comunicação <br>& Notificações</a></li>
             </ul>
         </nav>
@@ -43,7 +51,7 @@
                 <span class="notification-dot"></span>
             </button>
 
-            <!-- Foto do Usuário -->
+            <!-- Foto e Nome/Cargo do Usuário -->
             <div class="user-info">
                 <img src="user-photo.png" alt="Foto do Usuário">
                 <div class="user-details">
@@ -56,121 +64,285 @@
 
     <!-- Dropdown do Menu Sanduíche -->
     <nav class="dropdown-menu">
+        <!-- Campo de Pesquisa -->
+        <div class="search-container">
+            <input type="text" placeholder="Pesquise">
+
+        </div>
+    
+        <!-- Lista de Itens do Menu -->
         <ul>
             <li><a href="#">Alunos & Turmas</a></li>
             <li><a href="#">Cursos & Disciplinas</a></li>
             <li><a href="#">Professores & Horários</a></li>
             <li><a href="#">Avaliações & Notas</a></li>
-            <li><a href="#">Relatórios & Estatísticas</a></li>
+            <li class="has-submenu">
+                <a href="#">Relatórios & Estatísticas</a>
+                <ul class="submenu">
+                    <li><a href="#" class="active">Relatório de Aprovações</a></li>
+                    <li><a href="#">Relatório de Desempenho</a></li>
+                    <li><a href="#">Exportar Relatórios</a></li>
+                </ul>
+            </li>
             <li><a href="#">Comunicação & Notificações</a></li>
         </ul>
     </nav>
+    
 
-    <br>
+    <!-- -----------    corpo   ----------- -->
 
-    <div class="content">
-        <!-- Esquerda -->
-        <div class="left-grid">
-            <div class="left-options-background">
-                <div>
-                    <input type="text" class="search-bar" placeholder="Pesquisar...">
-                </div>
-                <li>
-                    <ul><a href="#" class="active">Relatório de Aprovações</a></ul>
-                    <ul><a href="#">Relatório de Desempenho</a></ul>
-                    <ul><a href="#">Exportar Relatórios</a></ul>
-                    <ul><a href="#">Editar Turmas</a></ul>
-                    <ul><a href="#">Vincular Alunos/Turmas</a></ul>
-                </li>
-            </div>
-        </div>
-        
-        <!-- Centro -->
-        <div class="central-grid">
-            <h2>Relatório de</h2>
-            <h1>Aprovações</h1>
-            <h3>Selecione qual universidade deseja verificar os indíces de aprovação</h3>
 
-            <br>
-
-            <div>
-                <table class="table-faculdades">
-                    <tr>
-                        <td><a href="#">ACAFE</a></td>
-                        <td><a href="#">UFRGS</a></td>
-                        <td><a href="#">UFCSPA</a></td>
-                        <td><a href="#" class="active">UDESC</a></td>
-                        <td><a href="#">UFSC</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">UFSM</a></td>
-                        <td><a href="#">PUCRS</a></td>
-                        <td><a href="#">UNISINOS</a></td>
-                        <td><a href="#">UFPR</a></td>
-                        <td><a href="#">UFPEL</a></td>
-                    </tr>
-                </table>
-            </div>
-
-            <br>
-
-            <div class="cards">
-                <div class="card-1">
-                    <div class="card-1-icon">
-                        <img class="add-icon" src="add.svg"/>                           
-                    </div>
-                    <div>
-                        <p class="cards-p1" style="color: #707070;">870</p>
-                        <p class="cards-p2" style="color: #425166;">Total Inscritos</p>
-                        <p class="cards-p3" style="color: #7E8182;">+85 em 2024</p>
-                    </div>
-                </div>
-                <div class="card-2" style="width: 100%; height: 168px; background: #D8FBF8; border-radius: 15px">
-                    <div class="card-2-icon">
-                        <img src="approve.svg"/>  
-                    </div>
-                    <p class="cards-p1" style="color: #151D48;">220</p>
-                    <p class="cards-p2" style="color: #425166;">Aprovados</p>
-                    <p class="cards-p3" style="color: #707070;">+20 em 2024</p>
-                </div>
-                <div class="card-3">
-                    <div class="card-3-icon">
-                        <img src="list.svg"/>  
-                    </div>
-                    <p class="cards-p1" style="color: #151D48;">62</p>
-                    <p class="cards-p2" style="color: #425166;">Lista de espera</p>
-                    <p class="cards-p3" style="color: #7E8182;">+5 em 2024</p>
-                </div>
-                <div class="card-4">
-                    <div class="card-4-icon">
-                        <img src="course.svg"/>  
-                    </div>
-                    <p class="cards-p1" style="color: #707070;">18</p>
-                    <p class="cards-p2" style="color: #425166;">Cursos</p>
-                    <p class="cards-p3" style="color: #7E8182;">+4 em 2024</p>
-                </div>
-             </div>
-        </div>
-
-        <!-- Direita -->
-        <div>
-            <div>
-                <iframe
-                src="https://calendar.google.com/calendar/embed?src=a3fe25f4d40b316f9409a332a48403a9427bc8bfbe61ca3f164e5b77aa65a09f%40group.calendar.google.com&ctz=America%2FSao_Paulo"
-                style="border-width: 0"
-                width="100%"
-                height="350px"
-                frameborder="0"
-                scrolling="no"
-                borde-radius="30px"
-            ></iframe>
-            </div>
-            <div class="mural">
-                <img class="ad-1" src="ad-1.png" alt="Venha Cursar Inglês"/>
-                <img class="ad-2" src="ad-2.png" alt="18 de Janeiro Dia da Universidade"/>
-                <img class="ad-3" src="ad-3.png" alt="Aprovada, Cláudia Alves, mais uma aluna aprovada"/>
-            </div>
-        </div>
+    
+    <div class="flex-container">
+        <!-- Área Azul (Fica oculta no Mobile) -->
+<div class="flex-item flex-blue">
+    <div class="search-container">
+        <input type="text" placeholder="Pesquise">
+        <button class="clear-button" aria-label="Limpar pesquisa">&times;</button>
     </div>
+    <a href="#" class="active">Relatório de Aprovações</a>
+    <a href="#">Relatório de Desempenho</a>
+    <a href="#">Exportar Relatórios</a>
+    <a href="#">Editar Turmas</a>
+    <a href="#">Vincular Alunos/Turmas</a>
+</div>
+
+    
+        <!-- Área do Meio (Campos ficam em colunas no Mobile) -->
+        <div class="flex-item flex-middle">
+
+            <!-- Título e Subtítulo -->
+            <div class="report-header">
+                <h3 class="report-subtitle">Relatório de</h3>
+                <h1 class="report-title">Aprovações</h1>
+                <p class="report-description">Selecione qual universidade deseja verificar os índices de aprovação</p>
+            </div>
+
+            <!-- UNIVERSIDADES -->
+            <div class="field-group">
+                <div class="field">ACAFE</div>
+                <div class="field">UFRGS</div>
+                <div class="field">UFCSPA</div>
+                <div class="field active">UDESC</div> 
+                <div class="field">UFSC</div>
+                <div class="field">UFSM</div>
+                <div class="field">PUCRS</div>
+                <div class="field">UNISINOS</div>
+                <div class="field">UFPR</div>
+                <div class="field">UFPEL</div>
+            </div>
+
+            <!-- CARD-->
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon" style="background: #E0E0E0;">
+                        <img src="icon.png" alt="Inscritos">
+                    </div>
+                    <p class="card-number">870</p>
+                    <p class="card-title">Total Inscritos</p>
+                    <p class="card-detail">+85 em 2024</p>
+                </div>
+                <div class="card" style="background: #D8FBF8;">
+                    <div class="card-icon" style="background: #20A09F;">
+                        <img src="New Costumers Icon.png" alt="Aprovados">
+                    </div>
+                    <p class="card-number">220</p>
+                    <p class="card-title">Aprovados</p>
+                    <p class="card-detail">+20 em 2024</p>
+                </div>
+                <div class="card" style="background: #E6F3FF;">
+                    <div class="card-icon" style="background: #003479;">
+                        <img src="Order Icon.png" alt="Lista de Inscritos">
+                    </div>
+                    <p class="card-number">62</p>
+                    <p class="card-title">Lista de espera</p>
+                    <p class="card-detail">+5 em 2024</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon" style="background: #E0E0E0;">
+                        <img src="Graduation Cap.png" alt="Cursos">
+                    </div>
+                    <p class="card-number">18</p>
+                    <p class="card-title">Cursos</p>
+                    <p class="card-detail">+4 em 2024</p>
+                </div>
+            </div>
+
+                        <!-- Gráfico de Histórico de Aprovações -->
+            <div class="chart-container">
+                <h3 class="chart-title">Histórico de aprovações</h3>
+                <p class="chart-description">
+                    <span style="color: #00A19A;">(+20)</span> mais do que 2023
+                </p>
+                <canvas id="approvalChart"></canvas>
+            </div>
+
+            <!-- Tabela de aprovação dos cursos -->
+            <div class="chart-container">
+                <h3 class="chart-title">Aprovação dos cursos</h3>
+                <p class="chart-description">
+                    <span style="color: #00A19A;">TOP +4</span> em aprovação
+                </p>
+                <div class="box approved-list">
+                    <table>
+                        <thead>
+                            <tr style="text-align: left; color: #c4c4c4">
+                                <th>#</th>
+                                <th>Curso</th>
+                                <th>Aprovação</th>
+                                <th>Média Corte</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01</td>
+                                <td>Medicina</td>
+                                <td>
+                                    <div class="progress1"></div>
+                                </td>
+                                <td>72,5</td>
+                            </tr>
+                            <tr>
+                                <td>02</td>
+                                <td>TADS</td>
+                                <td>
+                                    <div class="progress2"></div>
+                                </td>
+                                <td>62,5</td>
+                            </tr>
+                            <tr>
+                                <td>03</td>
+                                <td>Engenharia Mecânica</td>
+                                <td>
+                                    <div class="progress3"></div>
+                                </td>
+                                <td>50,2</td>
+                            </tr>
+                            <tr>
+                                <td>04</td>
+                                <td>Administração</td>
+                                <td>
+                                    <div class="progress4"></div>
+                                </td> 
+                                <td>40,2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="dual-box-container">
+                <!-- Box Melhores Disciplinas -->
+                <div class="box best-disciplines">
+                    <h3>Melhores disciplinas</h3>
+                    <p>TOP Notas em 2024</p>
+                    <img src="estatísticas.png" alt="estatísticas" class="stats" style="height: 100%;width: 200px;">
+
+                </div>
+
+                <!-- Box Listão de Aprovados -->
+                <div class="box approved-list">
+                    <h3>Listão de aprovados</h3>
+                    <p><span>2024</span> vestibular 2</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Vestibulando</th>
+                                <th>Curso</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ana Souza</td>
+                                <td>TADS</td>
+                                <td>98,2</td>
+                            </tr>
+                            <tr>
+                                <td>Gabriel Silva</td>
+                                <td>Medicina</td>
+                                <td>98,0</td>
+                            </tr>
+                            <tr>
+                                <td>Lucas Pereira</td>
+                                <td>Eng. Civil</td>
+                                <td>97,8</td>
+                            </tr>
+                            <tr>
+                                <td>Mariana Costa</td>
+                                <td>TADS</td>
+                                <td>97,7</td>
+                            </tr>
+                            <tr>
+                                <td>João Oliveira</td>
+                                <td>Geografia</td>
+                                <td>95,0</td>
+                            </tr>
+                            <tr>
+                                <td>Beatriz Almeida</td>
+                                <td>História</td>
+                                <td>94,2</td>
+                            </tr>
+                            <tr>
+                                <td>Rafael Santos</td>
+                                <td>Química</td>
+                                <td>92,1</td>
+                            </tr>
+                            <tr>
+                                <td>Larissa Lima</td>
+                                <td>Medicina</td>
+                                <td>85,9</td>
+                            </tr>
+                            <tr>
+                                <td>Pedro Martins</td>
+                                <td>TADS</td>
+                                <td>85,9</td>
+                            </tr>
+                            <tr>
+                                <td>Julia Rocha</td>
+                                <td>Medicina</td>
+                                <td>82,7</td>
+                            </tr>
+                            <tr>
+                                <td>Carlos Fernandes</td>
+                                <td>Medicina</td>
+                                <td>82,6</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+
+    
+        <!-- Terceira Área -->
+        <div class="flex-item flex-bottom">
+            <div class="calendar-container">
+                <iframe
+                    src="https://calendar.google.com/calendar/embed?src=a3fe25f4d40b316f9409a332a48403a9427bc8bfbe61ca3f164e5b77aa65a09f%40group.calendar.google.com&ctz=America%2FSao_Paulo"
+                    style="border: none; border-radius: 20px;"
+                    width="100%"
+                    height="100%"
+                    frameborder="0"
+                    scrolling="no">
+                </iframe>
+            </div>
+
+            <!-- Container das Imagens -->
+            <div class="ads-box">
+                <div class="ads-container">
+                    <img src="ad-1.png" class="ad-image" alt="Anúncio 1">
+                    <img src="ad-2.png" class="ad-image" alt="Anúncio 2">
+                    <img src="ad-3.png" class="ad-image" alt="Anúncio 3">
+                </div>
+            </div>
+
+        </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scriptchart.js"></script>
 </body>
 </html>
