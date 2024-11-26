@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprova System</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <!-- Barra de Navegação -->
@@ -45,6 +46,10 @@
             <!-- Foto do Usuário -->
             <div class="user-info">
                 <img src="user-photo.png" alt="Foto do Usuário">
+                <div class="user-details">
+                    <span class="user-name">Marina Boa Ventura</span>
+                    <span class="user-role">Coordenadora</span>
+                </div>
             </div>
         </div>
     </header>
@@ -144,12 +149,5 @@
             <img class="ad-3" src="ad-3.png" alt="Aprovada, Cláudia Alves, mais uma aluna aprovada"/>
         </div>
     </div>
-
-    <!-- Script JS -->
-    <script>
-        document.querySelector('.hamburger-menu').addEventListener('click', () => {
-            document.querySelector('.dropdown-menu').classList.toggle('active');
-        });
-    </script>
 </body>
 </html>
