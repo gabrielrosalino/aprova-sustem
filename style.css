@@ -405,12 +405,11 @@ body {
 .mural {
     width: 100%; 
     height: 100%; 
-    padding: 7px;
+    padding: 16px;
     background: rgba(32, 160, 159, 0.15); 
     border-radius: 30px; 
     overflow: hidden; 
-    flex-direction: column; 
-    justify-content: center; 
+    flex-direction: column;
     align-items: flex-start; 
     gap: 10px; 
     display: inline-flex;
