@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprova System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Barra de Navegação -->
+    <header class="navbar">
+        <!-- Botão do Menu Sanduíche (Hambúrguer) - Apenas para Mobile -->
+        <button class="hamburger-menu" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Logotipo -->
+        <div class="logo">
+            <img src="logo.png" alt="Aprova System">
+        </div>
+
+        <!-- Menu Central -->
+        <nav class="menu-central">
+            <ul>
+                <li><a href="#">Alunos <br>& Turmas</a></li>
+                <li><a href="#">Cursos <br>& Disciplinas</a></li>
+                <li><a href="#">Professores <br>& Horários</a></li>
+                <li><a href="#">Avaliações <br>& Notas</a></li>
+                <li><a href="#" class="active">Relatórios <br>& Estatísticas</a></li>
+                <li><a href="#">Comunicação <br>& Notificações</a></li>
+            </ul>
+        </nav>
+
+        <!-- Menu Lateral -->
+        <div class="menu-lateral">
+            <!-- Botão de Mensagens -->
+            <button class="msg-button">
+                <img src="msg-icon.png" alt="Mensagens">
+                <span class="notification-dot"></span>
+            </button>
+
+            <!-- Foto do Usuário -->
+            <div class="user-info">
+                <img src="user-photo.png" alt="Foto do Usuário">
+            </div>
+        </div>
+    </header>
+
+    <!-- Dropdown do Menu Sanduíche -->
+    <nav class="dropdown-menu">
+        <ul>
+            <li><a href="#">Alunos & Turmas</a></li>
+            <li><a href="#">Cursos & Disciplinas</a></li>
+            <li><a href="#">Professores & Horários</a></li>
+            <li><a href="#">Avaliações & Notas</a></li>
+            <li><a href="#">Relatórios & Estatísticas</a></li>
+            <li><a href="#">Comunicação & Notificações</a></li>
+        </ul>
+    </nav>
+
+    <br>
+
+    <div class="content">
+        <!-- Esquerda -->
+        <div class="left-grid">
+            <div class="left-options-background">
+                <div>
+                    <input type="text" class="search-bar" placeholder="Pesquisar...">
+                </div>
+                <li>
+                    <ul><a href="#" class="active">Relatório de Aprovações</a></ul>
+                    <ul><a href="#">Relatório de Desempenho</a></ul>
+                    <ul><a href="#">Exportar Relatórios</a></ul>
+                    <ul><a href="#">Editar Turmas</a></ul>
+                    <ul><a href="#">Vincular Alunos/Turmas</a></ul>
+                </li>
+            </div>
+        </div>
+        
+        <!-- Centro -->
+        <div class="central-grid">
+            <h2>Relatório de</h2>
+            <h1>Aprovações</h1>
+            <h3>Selecione qual universidade deseja verificar os indíces de aprovação</h3>
+
+            <br>
+
+            <div>
+                <table class="table-faculdades">
+                    <tr>
+                        <td><a href="#">ACAFE</a></td>
+                        <td><a href="#">UFRGS</a></td>
+                        <td><a href="#">UFCSPA</a></td>
+                        <td><a href="#" class="active">UDESC</a></td>
+                        <td><a href="#">UFSC</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">UFSM</a></td>
+                        <td><a href="#">PUCRS</a></td>
+                        <td><a href="#">UNISINOS</a></td>
+                        <td><a href="#">UFPR</a></td>
+                        <td><a href="#">UFPEL</a></td>
+                    </tr>
+                </table>
+            </div>
+
+            <br>
+
+            <div class="cards">
+                <div style="width: 100%; height: 168px; background: #F5F5F5; border-radius: 15px">
+                    <div style="width: 40px; height: 40px; background: #E0E0E0; border-radius: 9999px"></div>
+                    <p >870</p>
+                    <p>Total Inscritos</p>
+                    <p>+85 em 2024</p>
+                </div>
+                <div style="width: 100%; height: 168px; background: #D8FBF8; border-radius: 15px">
+                    <div style="width: 40px; height: 40px; background: #20A09F; border-radius: 9999px"></div>
+                    <p >220</p>
+                    <p>Aprovados</p>
+                    <p>+20 em 2024</p>
+                </div>
+                <div style="width: 100%; height: 100%; background: #E6F3FF; border-radius: 15px">
+                    <div style="width: 40px; height: 40px; background: #003479; border-radius: 9999px"></div>
+                    <p >62</p>
+                    <p>Lista de Inscritos</p>
+                    <p>+5 em 2024</p>
+                </div>
+                <div style="width: 100%; height: 100%; background: #F3F3F3; border-radius: 15px">
+                    <div style="width: 40px; height: 40px; background: #E0E0E0; border-radius: 9999px"></div>
+                    <p >18</p>
+                    <p>Cursos</p>
+                    <p>+4 em 2024</p>
+                </div>
+             </div>
+        </div>
+
+        <!-- Direita -->
+        <div class="mural">
+            <img class="ad-1" src="ad-1.png" alt="Venha Cursar Inglês"/>
+            <img class="ad-2" src="ad-2.png" alt="18 de Janeiro Dia da Universidade"/>
+            <img class="ad-3" src="ad-3.png" alt="Aprovada, Cláudia Alves, mais uma aluna aprovada"/>
+        </div>
+    </div>
+
+    <!-- Script JS -->
+    <script>
+        document.querySelector('.hamburger-menu').addEventListener('click', () => {
+            document.querySelector('.dropdown-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

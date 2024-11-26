@@ -1,0 +1,450 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da Página */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F5F5F5; /* Cor de fundo da página */
+}
+
+/* Barra de Navegação */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Espaçamento entre os itens */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #F5F5F5; /* Fundo branco */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Logotipo */
+.logo img {
+    height: 50px;
+}
+
+/* Menu Central (Desktop) */
+.menu-central {
+    display: flex;
+    list-style: none;
+    gap: 15px; /* Espaçamento entre os itens */
+    border-radius: 50px;
+    padding: 1px 1px;
+    background-color: #E0E0E0;
+}
+
+.menu-central ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.menu-central li {
+    text-align: center;
+}
+
+.menu-central a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column; /* Texto em duas linhas */
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 14px;
+    color: black;
+    border-radius: 50px; /* Botões arredondados */
+    background-color: #E0E0E0; /* Fundo cinza claro */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover */
+.menu-central a:hover {
+    background-color: #D8E9FF; /* Cor de hover */
+}
+
+/* Item Ativo */
+.menu-central a.active {
+    background-color: #003366; /* Fundo azul escuro */
+    color: white; /* Texto branco */
+}
+
+/* Menu Lateral */
+.menu-lateral {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Botão de Mensagens */
+.msg-button {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    background: white;
+    border: none;
+    border-radius: 50%; /* Botão circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.msg-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 10px;
+    height: 10px;
+    background-color: #00C853; /* Verde do indicador */
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* Informações do Usuário */
+.user-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    background: white; /* Fundo branco ao redor da imagem */
+    border-radius: 50%; /* Circular */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-info img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Menu Sanduíche (Hambúrguer) */
+.hamburger-menu {
+    display: none; /* Esconde no desktop */
+    flex-direction: column;
+    gap: 4px;
+    background: #003366; /* Fundo azul */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+/* Dropdown do Menu Sanduíche */
+.dropdown-menu {
+    position: absolute;
+    top: 70px; /* Abaixo do header */
+    left: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    display: none; /* Começa escondido */
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #D8E9FF;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    padding: 5px;
+    gap: 10px;
+}
+
+.left-grid {
+    width: 100%; 
+    height: 100%; 
+    position: relative;
+    padding: 20px;
+    gap: 10px;
+    width: 100%;
+    height: 893px;
+    border-radius: 30px;
+    background: #003479;
+}
+
+.left-grid ul {
+    width: 260px; 
+    height: 47px; 
+    left: 0px; 
+    top: 11px; 
+    position: relative; 
+    color: white; 
+    font-size: 16px; 
+    font-family: Roboto; 
+    font-weight: 400; 
+    line-height: 24px; 
+    letter-spacing: 0.50px; 
+    word-wrap: break-word;
+    padding-top: 20px;
+    padding-left: 12px;
+}
+
+.left-grid li {
+    list-style: none;
+    width: 210px; 
+    height: 220px; 
+    position: relative;
+}
+
+.left-grid a {
+    display: inline-block;
+    width: 260px; 
+    height: 47px;
+    text-decoration: none;
+    left: 0px; 
+    top: 11px; 
+    position: relative; 
+    color: white; 
+    font-size: 16px; 
+    font-family: Roboto; 
+    font-weight: 400;
+    letter-spacing: 0.50px; 
+    text-align: left;
+    padding-left: 12px;
+    line-height: 47px;
+    word-wrap: break-word;
+    border-radius: 50px; 
+    transition: all 0.3s ease-in-out;
+}
+
+.left-grid a:hover {
+    color: #20A09F;
+    background-color: #D8E9FF
+}
+
+.left-grid a:active {
+    color: #FFF;
+    background-color: #20A09F;
+}
+
+.left-options-background {
+    width: 100%; 
+    height: 893px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: #003479; 
+    border-radius: 30px;
+}
+
+.search-bar {
+    width: 260px; 
+    height: 47px;
+    padding: 10px; 
+    left: 12px; 
+    top: 14px; 
+    position: relative; 
+    background: #FFF; 
+    border-radius: 54px;
+    border: none;
+}
+
+.central-grid {
+    width: 100%; 
+    height: 100%; 
+    position: relative;
+    padding: 20px;
+    gap: 10px;
+    width: 100%;
+    height: 893px;
+    border-radius: 30px;
+    background: #FFF;
+}
+
+.central-grid h1 {
+    width: 100%; 
+    height: 60px; 
+    font-size: 48px; 
+    font-family: Inter; 
+    font-weight: 700; 
+    word-wrap: break-word;
+    font-style: normal;
+    line-height: 120%;
+    letter-spacing: -0.96px;
+    color: #20A09F;
+    padding-left: 12px;
+}
+
+.central-grid h2 {
+    width: 716px;
+    height: 25px;
+    color: #282828;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: -0.48px;
+    padding-left: 12px;
+}
+
+.central-grid h3 {
+    width: 505px;
+    height: 15px;
+    color: rgba(117, 117, 117, 0.69);
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    padding-left: 12px;
+}
+
+.table-faculdades {
+    border-collapse: collapse; /* Remove espaçamentos entre as células */
+    width: 100%; /* Define a largura total da tabela */
+}
+
+.table-faculdades th, td { 
+    padding: 8px; /* Adiciona espaçamento interno */
+    text-align: center; /* Centraliza o conteúdo */
+    height: 50px;
+    width: 132px;
+}
+
+.table-faculdades a {
+    display: inline-block;
+    width: 100%; 
+    height: 50px;
+    text-decoration: none;
+    left: 0px; 
+    top: 0px; 
+    position: relative; 
+    color: #707070; 
+    font-size: 14px; 
+    font-family: Inter; 
+    font-weight: 400;
+    letter-spacing: 0.50px; 
+    text-align: center;
+    line-height: 50px;
+    word-wrap: break-word;
+    border-radius: 10px; 
+    transition: all 0.3s ease-in-out;
+    background-color: #E0E0E0;
+}
+
+.table-faculdades a:hover {
+    background-color: #D8E9FF
+}
+
+.table-faculdades a:active {
+    color: #FFF;
+    background-color: #20A09F;
+}
+
+.table-faculdades a:active {
+    color: #FFF;
+    background-color: #20A09F;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 5px;
+    gap: 30px;
+    align-items: center;
+    border: 2px solid #FFF;
+}
+
+.mural {
+    width: 100%; 
+    height: 100%; 
+    padding: 7px;
+    background: rgba(32, 160, 159, 0.15); 
+    border-radius: 30px; 
+    overflow: hidden; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: flex-start; 
+    gap: 10px; 
+    display: inline-flex;
+}
+
+.ad-1 {
+    width: 269px; 
+    height: 269px; 
+    border-radius: 23px;
+}
+
+.ad-2 {
+    width: 269px; 
+    height: 477px; 
+    border-radius: 23px;
+}
+
+.ad-3 {
+    width: 268px; 
+    height: 268px; 
+    border-radius: 23px;
+}
+
+/* Reorganização para Telas Menores */
+@media (max-width: 768px) {
+    /* Menu Sanduíche Aparece */
+    .hamburger-menu {
+        display: flex;
+    }
+
+    /* Esconde o Menu Central */
+    .menu-central {
+        display: none;
+    }
+
+    /* Centraliza a Logo */
+    .logo {
+        flex: 1;
+        text-align: center;
+    }
+
+    /* Botões de Mensagem e Usuário à Direita */
+    .menu-lateral {
+        gap: 10px;
+    }
+
+    .user-info {
+        display: flex;
+    }
+
+    /* Mostra o Dropdown Quando Ativo */
+    .dropdown-menu.active {
+        display: block;
+    }
+}
